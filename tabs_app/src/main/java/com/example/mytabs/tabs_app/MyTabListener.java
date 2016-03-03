@@ -7,8 +7,10 @@ import android.support.v7.app.ActionBar.Tab;
 import android.util.Log;
 
 /*the listener interface - handles the tab selections
-        www.101apps.co.za*/
+        */
 public class MyTabListener<T extends Fragment>
+
+
         implements ActionBar.TabListener {
 
     private Fragment fragment;

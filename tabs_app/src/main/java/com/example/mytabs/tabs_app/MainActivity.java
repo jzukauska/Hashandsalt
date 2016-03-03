@@ -7,8 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
 
-/*main activity - we set up the action bar and tabs here
-www.101apps.co.za*/
 
 public class MainActivity extends ActionBarActivity {
 
@@ -34,32 +32,33 @@ public class MainActivity extends ActionBarActivity {
         actionBar.setNavigationMode(actionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(false);
 
+        //Instantiate the new tabs in the action bar
         Tab tab_one = actionBar.newTab();
         Tab tab_two = actionBar.newTab();
         Tab tab_three = actionBar.newTab();
 
         FirstFragment firstFragment = new FirstFragment();
-        tab_one.setText("One")
-                .setContentDescription("The first tab")
+        tab_one.setText("Hash")
+                .setContentDescription("Hashinator")
                 .setTabListener(
                         new MyTabListener<FirstFragment>(
                                 firstFragment));
 
         SecondFragment secondFragment = new SecondFragment();
-        tab_two.setText("Two")
-                .setContentDescription("The second tab")
+        tab_two.setText("Settings")
+                .setContentDescription("Options")
                 .setTabListener(
                         new MyTabListener<SecondFragment>(
                                 secondFragment));
 
         ThirdFragment thirdFragment = new ThirdFragment();
         tab_three
-                .setText("Three")
-                .setContentDescription("The third tab")
+                .setText("About")
+                .setContentDescription("About section")
                 .setTabListener(
                         new MyTabListener<ThirdFragment>(
                                 thirdFragment));
-
+        //Adds The different tabs from above into the action bar
         actionBar.addTab(tab_one);
         actionBar.addTab(tab_two);
         actionBar.addTab(tab_three);
@@ -69,6 +68,8 @@ public class MainActivity extends ActionBarActivity {
 //            get the saved selected tab's index and set that tab as selected
             actionBar.setSelectedNavigationItem(savedInstanceState.getInt("tabIndex", 0));
         }
+
+
     }
 
 }
