@@ -5,12 +5,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.widget.Spinner;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "junk";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

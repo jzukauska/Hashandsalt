@@ -22,37 +22,64 @@
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:text="Hash it!"
             android:id="@+id/button"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/editText"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="60dp" />
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Input password"
+            android:text="Input password:"
             android:id="@+id/textView2"
-            android:layout_marginTop="103dp"
+            android:layout_marginTop="45dp"
+            android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:inputType="textVisiblePassword|textPassword"
             android:ems="10"
             android:id="@+id/editText"
+            android:text="Password"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Hash output:"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/button"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_alignEnd="@+id/textView2"
-            android:layout_alignParentEnd="false"
-            android:text="Password" />
+            android:longClickable="true"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="41dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 
