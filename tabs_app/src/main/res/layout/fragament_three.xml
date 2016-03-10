@@ -21,9 +21,9 @@
         android:text="Created by:"
         android:id="@+id/textView5"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="47dp" />
+
+        android:layout_marginTop="47dp"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,10 +31,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Jake Zukauska"
         android:id="@+id/textView6"
-        android:layout_marginTop="42dp"
         android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="61dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +42,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="The other guys "
         android:id="@+id/textView7"
+        android:layout_marginTop="84dp"
         android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/textView5" />
+        android:layout_alignRight="@+id/textView6"
+        android:layout_alignEnd="@+id/textView6" />
 
 </RelativeLayout>
