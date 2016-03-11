@@ -1,14 +1,18 @@
 package com.example.mytabs.tabs_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 public class SecondFragment extends Fragment {
     private Spinner spinz;
     private EditText text;
+    private TextView out;
 
     ArrayList<String> saltList;
 
@@ -35,6 +40,8 @@ public class SecondFragment extends Fragment {
         final View fragView = inflater.inflate(R.layout.fragament_two, container, false);
 
          text = (EditText) fragView.findViewById(R.id.editText2);
+        out = (TextView) fragView.findViewById(R.id.textView11);
+        out.setText("");
 
         saltList = new ArrayList<String>();
 
@@ -67,13 +74,21 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        spinz.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String upToNCharacters = text.getText().toString().substring(0, Math.min(text.getText().toString().length(), (spinz.getSelectedItemPosition()+1) ));
 
+                out.setText(upToNCharacters);
+            }
 
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
         return fragView;
 
 
-    }
-
+        }
 
 
     public int getLength(View v) {
@@ -93,5 +108,7 @@ public class SecondFragment extends Fragment {
 
 
     }
+
+
 
 }

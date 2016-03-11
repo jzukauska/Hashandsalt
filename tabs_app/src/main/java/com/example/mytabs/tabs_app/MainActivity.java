@@ -1,5 +1,7 @@
 package com.example.mytabs.tabs_app;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
@@ -14,6 +16,10 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "junk";
+
+
+
+
 
 
 
