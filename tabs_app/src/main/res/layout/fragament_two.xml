@@ -1,90 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Salt settings"
         android:id="@+id/textView8"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Input salt:"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Salt settings"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/textView9"
-        android:layout_below="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/toggleButton"
+        android:layout_marginTop="10dp"
+        android:text="Input salt:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:inputType="text"
-        android:text="Type here"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:text="Type here" />
 
     <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:spinnerMode="dialog"
-        android:textAlignment="center"
-        android:popupBackground="#f7f7f7"
-        android:paddingLeft="10dp"
-        android:clickable="true"
-        android:background="#f7f7f7"
-        android:layout_below="@+id/textView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="20dp"
+        android:background="#f7f7f7"
+        android:clickable="true"
+        android:paddingLeft="10dp"
+        android:popupBackground="#f7f7f7"
+        android:spinnerMode="dialog"
+        android:textAlignment="center" />
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select amount of salt"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="20dp"
+        android:text="Select amount of salt"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ToggleButton
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salt on"
-        android:id="@+id/toggleButton"
-        android:checked="true"
-        android:textAlignment="center"
-        android:minHeight="100dp"
-        android:minWidth="200dp"
         android:layout_below="@+id/textView8"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:checked="true"
+        android:minHeight="100dp"
+        android:minWidth="200dp"
+        android:text="Salt on"
+        android:textAlignment="center" />
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView11"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner"
+        android:layout_marginTop="59dp"
+        android:text="Output"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

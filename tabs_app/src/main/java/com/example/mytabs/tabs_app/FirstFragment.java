@@ -1,6 +1,5 @@
 package com.example.mytabs.tabs_app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
@@ -9,22 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Vector;
 
-/**
- */
+
 public class FirstFragment extends Fragment {
-    EditText passwordText;
+
+    EditText input;
     TextView output;
     Button hashButton;
-    TextView stringFromInstance2;
-    String name;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,16 +27,20 @@ public class FirstFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //******************************************************************************************
+        //This section instantiates the editable fields and button
         View view = inflater.inflate(R.layout.fragament_one, container, false);
-        passwordText = (EditText) view.findViewById(R.id.editText);
+        input = (EditText) view.findViewById(R.id.editText);
         output = (TextView) view.findViewById(R.id.textView4);
         hashButton = (Button) view.findViewById(R.id.button);
-        stringFromInstance2 = (TextView) view.findViewById(R.id.textView11);
+        //******************************************************************************************
 
-        //name = ((TextView) getActivity().findViewById(R.id.textView11)).getText().toString();
+        // Output hash during view creation so we have something to look at immediatly
+        changeOutput(input);
 
-
-        passwordText.setOnKeyListener(new View.OnKeyListener() {
+        //This listener handles when the enter key is hit after editing the "password"
+        //It just changes the output really
+        input.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == android.view.KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
@@ -50,7 +48,7 @@ public class FirstFragment extends Fragment {
                         case android.view.KeyEvent.KEYCODE_DPAD_CENTER:
                         case android.view.KeyEvent.KEYCODE_ENTER:
 
-                            changeOutput(passwordText);
+                            changeOutput(input);
 
                             return true;
                         default:
@@ -61,12 +59,13 @@ public class FirstFragment extends Fragment {
             }
         });
 
+        //Listens to the big hash it button
         hashButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                changeOutput(passwordText);
+                changeOutput(input);
             }
         });
 
@@ -74,19 +73,13 @@ public class FirstFragment extends Fragment {
     }
 
     public void changeOutput(EditText s) {
-
-
         String str;
         str = s.getText().toString();
-
-        //  str = str + name;
-
         output.setText(md5(str));
+    }//end changeoutput
 
-
-    }
-
-    public String md5(String s) {
+    //private class for the change output method
+    private String md5(String s) {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
@@ -103,7 +96,7 @@ public class FirstFragment extends Fragment {
             e.printStackTrace();
         }
         return "";
-    }
+    }//end md5
 
 
-}
+}//end first fragment

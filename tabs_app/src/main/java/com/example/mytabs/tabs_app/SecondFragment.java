@@ -1,6 +1,5 @@
 package com.example.mytabs.tabs_app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -21,11 +20,10 @@ import java.util.ArrayList;
 
  */
 public class SecondFragment extends Fragment {
-    private Spinner spinz;
-    private EditText text;
-    private TextView out;
-
     ArrayList<String> saltList;
+    private Spinner spinz;
+    private EditText passInput;
+    private TextView out;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,25 +36,28 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View fragView = inflater.inflate(R.layout.fragament_two, container, false);
-
-         text = (EditText) fragView.findViewById(R.id.editText2);
+        //**********************************************************************************************
+        //gotta love taht good old instantiation
+        passInput = (EditText) fragView.findViewById(R.id.editText2);
         out = (TextView) fragView.findViewById(R.id.textView11);
-        out.setText("");
+        out.setText("");//set the output to nothing
 
         saltList = new ArrayList<String>();
 
-        populateList(saltList, fragView);
-
+        populateList(saltList, fragView);//default list
+        //**********************************************************************************************
 
         final ArrayAdapter<String> dynamicArrayHolder =
                 new ArrayAdapter<String>(getActivity(),
                         android.R.layout.simple_spinner_dropdown_item,
                         saltList);
 
+        //honestly these next lines just make it work
         spinz = (Spinner) fragView.findViewById(R.id.spinner);//Associate "spinz" with xml
-        spinz.setAdapter(dynamicArrayHolder);//
+        spinz.setAdapter(dynamicArrayHolder);//I hate apapters
 
-        text.setOnKeyListener(new View.OnKeyListener() {
+        //Handles enter key during input
+        passInput.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == android.view.KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
@@ -73,10 +74,13 @@ public class SecondFragment extends Fragment {
                 return false;
             }
         });
-
+        //Fancy method to take an edittext and turn it into a string
+        //then it cuts it off at the number selected in the spinner
+        //and sets the output to the "cut" version of the string
         spinz.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String upToNCharacters = text.getText().toString().substring(0, Math.min(text.getText().toString().length(), (spinz.getSelectedItemPosition()+1) ));
+
+                String upToNCharacters = passInput.getText().toString().substring(0, Math.min(passInput.getText().toString().length(), (spinz.getSelectedItemPosition() + 1)));
 
                 out.setText(upToNCharacters);
             }
@@ -85,30 +89,34 @@ public class SecondFragment extends Fragment {
                 return;
             }
         });
-        return fragView;
+
+        //Genuinly have no idea how views work most of this is lucky key hammering
+        return fragView;//returns the instantiation
+
+    }
 
 
-        }
+    //Needs the view to find the edittext box
+    //simple for loop to fill the array
+
+    //the array is then placed into an adapter that lets it play nice
+    //with the spinner.
+    public void populateList(ArrayList list, View v) {
+
+        list.clear();
+
+        for (int i = 0; i < getLength(v); i++)
+            list.add(Integer.toString(i + 1));
 
 
-    public int getLength(View v) {
+
+
+    }
+
+    private int getLength(View v) {
         EditText text = (EditText) v.findViewById(R.id.editText2);
         int number = text.length();
         return number;
     }
-
-    public void populateList(ArrayList list, View v) {
-
-        list.clear();
-        for (int i = 0; i < getLength(v); i++) {
-
-            list.add(Integer.toString(i + 1));
-
-        }
-
-
-    }
-
-
 
 }
